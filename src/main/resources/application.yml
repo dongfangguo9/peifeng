@@ -1,0 +1,17 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://localhost:3306/peifeng_db?serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 8080
+  servlet:
+    jsp:
+      init-parameters:
+        development: true  #开启jsp页面的调试模式
+
