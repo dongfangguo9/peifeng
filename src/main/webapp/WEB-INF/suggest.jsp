@@ -1,23 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script src="/public/js/jquery.min.js"></script>
-
-<script src="/public/js/amazeui.min.js"></script>
-
-<script src="/theme/default/js/app.js"></script>
-
-<script src="/theme/default/js/jquery.easing.1.3.js"></script>
-
-<script src="/theme/default/js/jquery.skitter.js"></script>
-
-<script src="/theme/default/js/jquery.liMarquee.js"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport" content="width=device-width, initial-scale=0">
-
     <meta name="renderer" content="webkit">
     <base href="/">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
@@ -36,12 +24,16 @@
 
 
     <link rel="stylesheet" href="/theme/default/css/skitter.css">
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/amazeui.min.js"></script>
+    <script src="/theme/default/js/app.js"></script>
+    <script src="/theme/default/js/jquery.easing.1.3.js"></script>
+    <script src="/theme/default/js/jquery.skitter.js"></script>
+    <script src="/theme/default/js/jquery.liMarquee.js"></script>
 
 </head>
 
-
 <body>
-
 
 <style>
     .topbox {
@@ -141,7 +133,7 @@
                 data: $("#form").serialize(),
                 dataType: "json",
                 success: function (data) {
-                    $("#test").html("<div>${info}</div>");
+                    $("#test").html(data.info);
                 }
             })
         })
