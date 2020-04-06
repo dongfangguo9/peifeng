@@ -108,7 +108,7 @@
 
             <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
 
-            <input type="text" name="name" class="am-form-field" placeholder="请输入您的姓名" aria-required="true">
+            <input type="text" id="name" name="name" class="am-form-field" placeholder="请输入您的姓名" aria-required="true">
 
         </div>
 
@@ -116,7 +116,7 @@
 
             <span class="am-input-group-label"><i class="am-icon-phone am-icon-fw"></i></span>
 
-            <input type="text" name="phone" maxlength="11" class="am-form-field" placeholder="请输入您的手机号码"
+            <input type="text" id="phone" name="phone" maxlength="11" class="am-form-field" placeholder="请输入您的手机号码"
                    aria-required="true">
 
         </div>
@@ -126,7 +126,7 @@
 
             <span class="am-input-group-label"><i class="am-icon-comments-o am-icon-fw"></i></span>
 
-            <textarea name="content" rows="5" placeholder="请输入留言内容" aria-required="true"></textarea>
+            <textarea id="content" name="content" rows="5" placeholder="请输入留言内容" aria-required="true"></textarea>
 
         </div>
 
@@ -135,8 +135,28 @@
     </form>
     <script>
 
+        function inputCheck(){
+            if ($("#name").val() == ""){
+                $("#test").html("<font color='red'>"+"请输入您的姓名！"+"</font>");
+                return false;
+            }
+            if(!(/^1[3456789]\d{9}$/.test($("#phone").val()))){
+                $("#test").html("<font color='red'>"+"手机号格式不正确！"+"</font>");
+                return false;
+            }
+            if ($("#content").val() == ""){
+                $("#test").html("<font color='red'>"+"请输入留言内容！"+"</font>");
+                return false;
+            }
+            return true;
+        }
+
         $("#submit1").click(
             function () {
+                if (inputCheck() == false){
+                    return false;
+                }
+                debugger
                 $.post({
                     url: "/suggest",
                     data: $("#form").serialize(),
