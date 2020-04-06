@@ -1,10 +1,19 @@
 package com.gxpeifeng.peifeng;
 
+import com.gxpeifeng.peifeng.Po.DynamicList;
+import com.gxpeifeng.peifeng.service.DynamicSevice;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class InitController {
+    @Autowired
+    DynamicSevice dynamicSevice;
+
     @RequestMapping({"/", "", "/home", "/index"})
     public String index() {
         return "index";
@@ -26,7 +35,9 @@ public class InitController {
     }
 
     @RequestMapping("/dynamic")
-    public String dynamic() {
+    public String dynamic(Model model) {
+        List<DynamicList> list = dynamicSevice.findAll();
+        model.addAttribute("list",list);
         return "Dynamic";
     }
 

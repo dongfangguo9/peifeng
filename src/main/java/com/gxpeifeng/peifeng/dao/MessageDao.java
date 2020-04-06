@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Select;
 public interface MessageDao {
     @Select("select name from t_message where phone=#{phone}")
     String findByPhone(String phone);
-    @Insert("insert into t_message values(#{phone},#{name},#{context})")
+    @Insert("insert into t_message values(#{phone},#{name},#{content})")
     void save(Message message);
 }

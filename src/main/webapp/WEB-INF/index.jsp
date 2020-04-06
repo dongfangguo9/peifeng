@@ -599,7 +599,7 @@
 
     .youshi .yslist p {
         padding-left: 14px;
-        background: url(../img/youshi_s02.png) no-repeat left 8px;
+        background: url(/img/youshi_s02.png) no-repeat left 8px;
         font-size: 13px;
         line-height: 25px;
     }
@@ -611,7 +611,7 @@
     .youshi .phone {
         overflow: hidden;
         padding-left: 55px;
-        background: url(../img/phone.png) no-repeat left center;
+        background: url(/img/phone.png) no-repeat left center;
         margin-top: 20px;
     }
 
@@ -628,7 +628,7 @@
     }
 
     .youshi .youshi01 {
-        background: url(../img/youshi_01.jpg) no-repeat center top;
+        background: url(/img/youshi_01.jpg) no-repeat center top;
     }
 
     .youshi .youshi02 {

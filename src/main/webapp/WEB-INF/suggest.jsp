@@ -1,11 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<script src="/public/js/jquery.min.js"></script>
+
+<script src="/public/js/amazeui.min.js"></script>
+
+<script src="/theme/default/js/app.js"></script>
+
+<script src="/theme/default/js/jquery.easing.1.3.js"></script>
+
+<script src="/theme/default/js/jquery.skitter.js"></script>
+
+<script src="/theme/default/js/jquery.liMarquee.js"></script>
+<%--<script src="/public/js/login.js"></script>--%>
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport" content="width=device-width, initial-scale=0">
+
     <meta name="renderer" content="webkit">
     <base href="/">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
@@ -24,16 +37,12 @@
 
 
     <link rel="stylesheet" href="/theme/default/css/skitter.css">
-    <script src="/public/js/jquery.min.js"></script>
-    <script src="/public/js/amazeui.min.js"></script>
-    <script src="/theme/default/js/app.js"></script>
-    <script src="/theme/default/js/jquery.easing.1.3.js"></script>
-    <script src="/theme/default/js/jquery.skitter.js"></script>
-    <script src="/theme/default/js/jquery.liMarquee.js"></script>
 
 </head>
 
+
 <body>
+
 
 <style>
     .topbox {
@@ -53,11 +62,11 @@
     .top_L {
         float: left;
     }
+    #test{
+    font-size:x-large;
+    }
 </style>
 <%@include file="collection/extractheader.jsp" %>
-
-
-<!--<iframe src="../a.html" width="100%" height="400" scroll="no"></iframe>-->
 <div class="banner">
     <div class="skitter" id="banner">
         <ul>
@@ -90,10 +99,10 @@
     <div class="subject m20">
 
         <b>我要留言</b>
-        <div id="test"></div>
     </div>
+    <div id="test" align="center"></div>
 
-    <form class="am-form am-margin-top nice-validator n-yellow" id="form" method="post" <%--novalidate="novalidate"--%>>
+    <form class="am-form am-margin-top nice-validator n-yellow" id="form" method="post" novalidate="novalidate">
 
         <div class="am-input-group am-form-group">
 
@@ -117,7 +126,7 @@
 
             <span class="am-input-group-label"><i class="am-icon-comments-o am-icon-fw"></i></span>
 
-            <textarea name="context" rows="5" placeholder="请输入留言内容" aria-required="true"></textarea>
+            <textarea name="content" rows="5" placeholder="请输入留言内容" aria-required="true"></textarea>
 
         </div>
 
@@ -126,17 +135,22 @@
     </form>
     <script>
 
-        $("#submit1").click(function () {
-            $.ajax({
-                url: "/suggest",
-                type: "POST",
-                data: $("#form").serialize(),
-                dataType: "json",
-                success: function (data) {
-                    $("#test").html(data.info);
-                }
-            })
-        })
+        $("#submit1").click(
+            function () {
+                $.post({
+                    url: "/suggest",
+                    data: $("#form").serialize(),
+                    datatype: "json",
+                    success: function (data) {
+                        if(data=="提交成功"){
+                            $("#test").html("<font color='green'>"+data+"</font>");
+                        }else {
+                            $("#test").html("<font color='red'>"+data+"</font>");
+                        }
+                    }
+                })
+            }
+        )
 
     </script>
 

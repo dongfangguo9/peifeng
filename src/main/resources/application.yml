@@ -15,3 +15,8 @@ server:
       init-parameters:
         development: true  #开启jsp页面的调试模式
 
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: AUTO
+

@@ -252,7 +252,6 @@
 
         //首页链接添加选中效果
 
-        $("#nav ul li:first-child").addClass("hover");
 
         //Banner切换
 

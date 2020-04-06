@@ -125,7 +125,7 @@
 <div class="width inner_container am-animation-slide-bottom am-animation-delay-1">
 
 
-    <ol class="am-breadcrumb am-breadcrumb-slash am-animation-slide-top am-animation-delay-1">
+   <%-- <ol class="am-breadcrumb am-breadcrumb-slash am-animation-slide-top am-animation-delay-1">
 
         <li><a href="http://www.bjydfsgs.com/" class="am-icon-home">首页</a></li>
 
@@ -137,7 +137,7 @@
         <li class="am-active"></li>
 
     </ol>
-
+--%>
 
     <div class="home_nav">
 
@@ -154,8 +154,8 @@
     <ul class="news_list mt20">
 
 
-        <li><span class="date">13<em>2020-03</em></span>
-            <div><a href="http://www.bjydfsgs.com/?c=index&amp;a=show&amp;id=199" title="防水工程量大的地方，需要的员工数量也多"
+        <li><span class="date">${list[0].dateStr2}<em>${list[0].dateStr1}</em></span>
+            <div><a href="/dynamic/dynamicDetail" title="防水工程量大的地方，需要的员工数量也多"
                     target="_blank">防水工程量大的地方，需要的员工数量也多</a>每个公司的员工是不一样的，而且每一个公司要想让自己能够发展的，更加快速的话，在招聘员工过程当中，也需要做到员工的数量能够符合于人们的要求，防水工程量大的地方往往需要带的员工数量都是比较多的，因为很多量大的地方，如果员工的收入量很少的话，这样的工作应该来说是不能够去胜任的，但是如果是员工的数量比较多的话，那么可能就会让他们在短期之内
             </div>
         </li>
