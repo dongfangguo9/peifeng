@@ -1,11 +1,13 @@
 package com.gxpeifeng.peifeng;
 
+import com.github.pagehelper.PageInfo;
 import com.gxpeifeng.peifeng.Po.DynamicList;
 import com.gxpeifeng.peifeng.service.DynamicSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -35,9 +37,10 @@ public class InitController {
     }
 
     @RequestMapping("/dynamic")
-    public String dynamic(Model model) {
-        List<DynamicList> list = dynamicSevice.findAll();
-        model.addAttribute("list",list);
+    public String dynamic(@RequestParam(name = "page", required = true, defaultValue = "1") Integer page, @RequestParam(name = "size", required = true, defaultValue = "10") Integer size, Model model) {
+        List<DynamicList> list = dynamicSevice.findAll(page,size);
+        PageInfo pageInfo = new PageInfo(list);
+        model.addAttribute("list",pageInfo);
         return "Dynamic";
     }
 
